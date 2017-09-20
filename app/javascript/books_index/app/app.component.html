@@ -7,16 +7,23 @@
       <td>Описание</td>
       <td>Обложка</td>
       <td>Дата создания</td>
+      <td></td>
     </tr>
   </thead>
   <tbody>
     {{books}}
-    <tr *ngFor='let book of books'>
+    <tr *ngFor='let book of books; let i = index'>
       <td>{{book.id}}</td>
       <td>{{book.title}}</td>
       <td>{{book.description}}</td>
       <td><img [src]='book.poster_url'></img></td>
       <td>{{book.created_at}}</td>
+      <td>
+        <a [href]='"/books/" + book.id + "/edit"'>Редактировать</a>
+        <a href='javascript:void(0)' (click)='delete_book(i)' data-method='delete'>Удалить</a>
+      </td>
     </tr>
   </tbody>
 </table>
+
+<book-new>Загрузка ...</book-new>

@@ -1,0 +1,13 @@
+<h1>Новая книга</h1>
+<div>
+  <form #form='ngForm' (ngSubmit)='create_book()' action='/books' method='post'>
+    <input type='text' name='book[title]' id='book_title' [(ngModel)]='book.title' placeholder='Название' />
+
+    <textarea name='book[description]' id='book_description' [(ngModel)]='book.description' placeholder='Описание'></textarea>
+
+    <input type='file' name='book[poster]' id='book_poster' [(ngModel)]='files_input' (change)='set_poster_base64($event)' />
+    <img [src]='poster_base64'></img>
+
+    <input type='submit' value='Create Book'>
+  </form>
+</div>

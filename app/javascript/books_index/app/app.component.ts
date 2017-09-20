@@ -4,8 +4,7 @@ import { BooksService } from './books.service';
 
 @Component({
   selector: 'books-index',
-  template: templateString,
-  providers: [ BooksService ]
+  template: templateString
 })
 export class AppComponent implements OnInit {
   books = [];
@@ -14,5 +13,9 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.books = this.books_service.get_books();
+  }
+
+  delete_book(index:number) {
+    this.books_service.delete_book(index);
   }
 }

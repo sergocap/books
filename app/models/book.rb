@@ -3,6 +3,8 @@ class Book
   include Mongoid::Paperclip
   include Mongoid::Timestamps::Created
 
+  attr_accessor :poster_base64, :poster_original_file_name
+
   field :title, type: String
   field :description, type: String
 
@@ -17,6 +19,8 @@ class Book
 
 	validates_presence_of :title
 
+  before_validation :build_poster
+
   def as_json(options = {})
     {
       id: id.to_s,
@@ -25,5 +29,14 @@ class Book
       poster_url: poster.url(:small),
       created_at: created_at
     }
+  end
+
+  private
+  def build_poster
+    if poster_base64 && poster_original_file_name
+      image = Paperclip.io_adapters.for(poster_base64)
+      image.original_filename = poster_original_file_name
+      self.poster = image
+    end
   end
 end

@@ -1,6 +1,6 @@
 <h1>Новая книга</h1>
 <div>
-  <form #form='ngForm' (ngSubmit)='create_book()' action='/books' method='post'>
+  <form #form='ngForm' (ngSubmit)='create_book()'>
     <input type='text' name='book[title]' id='book_title' [(ngModel)]='book.title' placeholder='Название' />
 
     <textarea name='book[description]' id='book_description' [(ngModel)]='book.description' placeholder='Описание'></textarea>

@@ -9,6 +9,7 @@ gem 'coffee-rails', '~> 4.2'
 gem 'config'
 gem 'jbuilder', '~> 2.5'
 gem 'mongoid'
+gem "mongoid-paperclip"
 gem 'puma', '~> 3.7'
 gem 'rails', '~> 5.1.4'
 gem 'sass-rails', '~> 5.0'
@@ -18,6 +19,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'webpacker'
 
 group :development, :test do
+  gem 'awesome_print'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'

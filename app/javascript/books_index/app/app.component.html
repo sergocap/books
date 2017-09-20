@@ -1,1 +1,22 @@
-<h1>{{app_name}}</h1>
+<h1>Книги</h1>
+<table>
+  <thead>
+    <tr>
+      <td>id</td>
+      <td>Название</td>
+      <td>Описание</td>
+      <td>Обложка</td>
+      <td>Дата создания</td>
+    </tr>
+  </thead>
+  <tbody>
+    {{books}}
+    <tr *ngFor='let book of books'>
+      <td>{{book.id}}</td>
+      <td>{{book.title}}</td>
+      <td>{{book.description}}</td>
+      <td><img [src]='book.poster_url'></img></td>
+      <td>{{book.created_at}}</td>
+    </tr>
+  </tbody>
+</table>

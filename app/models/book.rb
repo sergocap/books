@@ -7,7 +7,7 @@ class Book
   field :description, type: String
 
   has_mongoid_attached_file :poster,
-    path: ':rails_root/public/system/:attachment/:id/:style/:filename',
+    url: '/system/afishas/:attachment/:id/:style/:filename',
     styles: {
      	small:   ['200x200#']
     }

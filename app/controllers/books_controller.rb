@@ -3,7 +3,17 @@ class BooksController < ApplicationController
     respond_to do |format|
       format.html {}
       format.json {
-        render json: { data: { books: Book.all } } and return
+        json_books = Book.all.map {|book|
+          {
+            id: book.id.to_s,
+            title: book.title,
+            description: book.description,
+            poster_url: book.poster.url(:small),
+            created_at: book.created_at
+          }
+        }
+
+        render json: { data: { books: json_books }}
       }
     end
   end

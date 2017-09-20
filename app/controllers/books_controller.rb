@@ -1,20 +1,26 @@
 class BooksController < ApplicationController
   def index
     respond_to do |format|
-      format.html {}
+      format.html {
+        @book = Book.new
+      }
       format.json {
-        json_books = Book.all.map {|book|
-          {
-            id: book.id.to_s,
-            title: book.title,
-            description: book.description,
-            poster_url: book.poster.url(:small),
-            created_at: book.created_at
-          }
-        }
-
-        render json: { data: { books: json_books }}
+        render json: { data: { books: Book.all }} and return
       }
     end
+  end
+
+  def create
+    @book = Book.new(books_params)
+    if @book.save
+      redirect_to books_path
+    else
+      render :index
+    end
+  end
+
+  private
+  def books_params
+    params.require(:book).permit([:title, :description, :poster])
   end
 end

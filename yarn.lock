@@ -20,6 +20,12 @@
   dependencies:
     tslib "^1.7.1"
 
+"@angular/forms@^4.4.3":
+  version "4.4.3"
+  resolved "https://registry.yarnpkg.com/@angular/forms/-/forms-4.4.3.tgz#25b41bbab58bf1da872411c8517c10d7c5373d8e"
+  dependencies:
+    tslib "^1.7.1"
+
 "@angular/http@^4.4.3":
   version "4.4.3"
   resolved "https://registry.yarnpkg.com/@angular/http/-/http-4.4.3.tgz#b557ed24144aacc44b136cd477e84d2f57808903"

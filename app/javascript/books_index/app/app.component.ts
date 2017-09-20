@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import templateString from './app.component.html';
 import { BooksService } from './books.service';
-import Book from './book.ts';
 
 @Component({
   selector: 'books-index',

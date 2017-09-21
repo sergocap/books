@@ -44,7 +44,8 @@ export class BooksService {
       err => {
 				let dictionary = err.json().data.errors;
         for (let key in dictionary)
-          alert(key + ': ' + dictionary[key][0])
+          if(key == 'poster' || key == 'title')
+            alert(dictionary[key][0])
       }
     )
   }

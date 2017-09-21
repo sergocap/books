@@ -5,7 +5,7 @@ class ActiveSupport::TestCase
   fixtures :all
 
 	def poster_kolybelnaya
-    File.open(File.join(Rails.root, 'test/fixtures/files/Chak_Palanik__Kolybelnaya.jpeg'))
+    File.open(Rails.root.join('test/fixtures/files/Chak_Palanik__Kolybelnaya.jpeg'))
 	end
 
   def first_fixture_created
@@ -15,10 +15,10 @@ class ActiveSupport::TestCase
   end
 
   def image_jpeg_base64
-    File.read(File.join(Rails.root, 'test/fixtures/files/image_jpeg_base64.txt'))
+    File.read(Rails.root.join('test/fixtures/files/image_jpeg_base64.txt'))
   end
 
   def image_jpeg_base64_2
-    File.read(File.join(Rails.root, 'test/fixtures/files/image_jpeg_base64_2.txt'))
+    File.read(Rails.root.join('test/fixtures/files/image_jpeg_base64_2.txt'))
   end
 end

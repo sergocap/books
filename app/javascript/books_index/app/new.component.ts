@@ -19,9 +19,18 @@ export class NewComponent implements OnInit {
   }
 
   create_book() {
-    this.books_service.create_book(this.book);
-    this.book = this.books_service.new_book();
-    this.clear_poster_input()
+    this.books_service.create_book(this.book).subscribe(
+      res => {
+        this.book = this.books_service.new_book();
+        this.clear_poster_input()
+      },
+      err => {
+        let dictionary = err.json().data.errors;
+        for(let key in dictionary)
+          if(key == 'poster' || key == 'title')
+            alert(dictionary[key][0]);
+      }
+    )
   }
 
   set_poster_base64(event) {
@@ -45,6 +54,6 @@ export class NewComponent implements OnInit {
     this.poster_base64 = '';
     this.book.poster_base64 = '';
     this.book.poster_original_file_name = '';
-    this.files_input = '';
+    this.files_input = [];
   }
 }

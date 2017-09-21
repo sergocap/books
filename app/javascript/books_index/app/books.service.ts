@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Http } from '@angular/http';
 import Book from './book.ts';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/map';
 
 @Injectable()
 export class BooksService {
@@ -42,7 +44,7 @@ export class BooksService {
     return new Book('', '', '', '', '')
   }
 
-  create_book(book:Book) {
+  create_book(book:Book):Observable<Book> {
     let data = {
       book: {
         title: book.title,
@@ -52,23 +54,18 @@ export class BooksService {
       }
     }
 
-    this.http.post('/books', data).subscribe(
-      res => {
-      	let res_book = res.json().data.book;
-				this.books.push(new Book(
-					res_book.id,
-					res_book.title,
-					res_book.description,
-					res_book.poster_url,
-					res_book.created_at
-				))
-      },
-      err => {
-				let dictionary = err.json().data.errors;
-				for (let key in dictionary) {
-          alert(key + ': ' + dictionary[key][0])
-				}
-      }
+    return this.http.post('/books', data).map((res:Response)=>{
+      let res_book = res.json().data.book;
+      let new_book = new Book(
+        res_book.id,
+        res_book.title,
+        res_book.description,
+        res_book.poster_url,
+        res_book.created_at
+      );
+      this.books.push(new_book);
+
+      return new_book;
     )
   }
 }

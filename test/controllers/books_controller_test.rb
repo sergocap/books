@@ -1,7 +1,7 @@
 class BooksControllerTest < ActionDispatch::IntegrationTest
   setup do
-    packs_test_dir = File.join(Rails.root, 'public/packs-test')
-    packs_dir = File.join(Rails.root, 'public/packs')
+    packs_test_dir = Rails.root.join('public/packs-test')
+    packs_dir = Rails.root.join('public/packs')
 
     FileUtils.remove_dir(packs_test_dir)
     FileUtils.cp_r(packs_dir, packs_test_dir)

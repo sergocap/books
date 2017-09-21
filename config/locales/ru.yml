@@ -1,0 +1,18 @@
+ru:
+  mongoid:
+    attributes:
+      book:
+        title: Название
+        description: Описание
+        poster: Обложка
+        created_at: Дата создания
+
+    errors:
+      models:
+        book:
+          attributes:
+            title:
+              blank: Заполните название
+
+            poster_content_type:
+              invalid: Некорректный формат файла. Выберите изображение (jpeg, jpg, png, gif)

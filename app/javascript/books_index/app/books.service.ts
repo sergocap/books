@@ -33,11 +33,14 @@ export class BooksService {
   }
 
   delete_book(index:number) {
-    let book = this.books[index];
-    this.http.delete('/books/' + book.id).subscribe(
-      res => this.books.splice(index, 1),
-      err => console.log(err)
-    )
+    if(confirm('Вы уверены?')) {
+
+      let book = this.books[index];
+      this.http.delete('/books/' + book.id).subscribe(
+        res => this.books.splice(index, 1),
+        err => console.log(err)
+      )
+    }
   }
 
   new_book() {

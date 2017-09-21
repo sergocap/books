@@ -16,11 +16,11 @@ gem 'puma', '~> 3.7'
 gem 'rails', '~> 5.1.4'
 gem 'sass-rails', '~> 5.0'
 gem 'slim'
-gem 'sqlite3'
 gem 'uglifier', '>= 1.3.0'
 gem 'webpacker'
 
 group :development, :test do
+  gem 'sqlite3'
   gem 'awesome_print'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 2.13'
@@ -35,3 +35,5 @@ group :development do
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+ruby '2.3.3'

@@ -18,9 +18,9 @@ gem 'sass-rails', '~> 5.0'
 gem 'slim'
 gem 'uglifier', '>= 1.3.0'
 gem 'webpacker'
+gem 'sqlite3'
 
 group :development, :test do
-  gem 'sqlite3'
   gem 'awesome_print'
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'capybara', '~> 2.13'

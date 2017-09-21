@@ -11,19 +11,16 @@
     </tr>
   </thead>
   <tbody>
-    {{books}}
-    <tr *ngFor='let book of books; let i = index'>
+    <tr>
       <td>{{book.id}}</td>
-      <td>{{book.title}}</td>
-      <td>{{book.description}}</td>
+      <td><input type='text' [(ngModel)]='book.title' /></td>
+      <td><textarea [(ngModel)]='book.description'></textarea></td>
       <td><img [src]='book.poster_url'></img></td>
       <td>{{book.created_at}}</td>
       <td>
-        <a [href]='"/books/" + book.id + "/edit"'>Редактировать</a>
-        <a href='javascript:void(0)' (click)='delete_book(i)'>Удалить</a>
+        <a href='javascript:void(0)' (click)='update(book)'>Сохранить</a>
+        <a [href]='"/books/" + book.id' data-method='delete'>Удалить</a>
       </td>
     </tr>
   </tbody>
 </table>
-
-<book-new>Загрузка ...</book-new>

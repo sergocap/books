@@ -4,7 +4,7 @@ import Book from './book.ts';
 
 @Injectable()
 export class BooksService {
-  books = [];
+  books:Book[] = [];
 
   constructor(private http:Http) {}
 
@@ -43,7 +43,6 @@ export class BooksService {
   }
 
   create_book(book:Book) {
-    console.log(book);
     let data = {
       book: {
         title: book.title,
@@ -65,7 +64,10 @@ export class BooksService {
 				))
       },
       err => {
-        console.log(err)
+				let dictionary = err.json().data.errors;
+				for (let key in dictionary) {
+          alert(key + ': ' + dictionary[key][0])
+				}
       }
     )
   }

@@ -10,7 +10,7 @@ import Book from './book.ts';
 export class NewComponent implements OnInit {
   book:Book;
   poster_base64 = '';
-  files_input:FileList;
+  files_input:Object;
 
   constructor(private books_service:BooksService) {}
 
@@ -46,6 +46,6 @@ export class NewComponent implements OnInit {
     this.poster_base64 = '';
     this.book.poster_base64 = '';
     this.book.poster_original_file_name = '';
-    this.files_input = [];
+    this.files_input = '';
   }
 }

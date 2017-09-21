@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import templateString from './app.component.html';
+import Book from './book.ts';
 import { BooksService } from './books.service';
 
 @Component({
@@ -7,7 +8,7 @@ import { BooksService } from './books.service';
   template: templateString
 })
 export class AppComponent implements OnInit {
-  books = [];
+  books:Book[] = [];
 
   constructor(private books_service:BooksService) {}
 

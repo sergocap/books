@@ -15,7 +15,12 @@
       <td>{{book.id}}</td>
       <td><input type='text' [(ngModel)]='book.title' /></td>
       <td><textarea [(ngModel)]='book.description'></textarea></td>
-      <td><img [src]='book.poster_url'></img></td>
+      <td>
+        <img *ngIf='!poster_base64.length' [src]='book.poster_url'></img>
+        <img [src]='poster_base64'></img>
+
+        <input type='file' name='book[poster]' id='book_poster' [(ngModel)]='files_input' (change)='set_poster_base64($event)' />
+      </td>
       <td>{{book.created_at}}</td>
       <td>
         <a href='javascript:void(0)' (click)='update(book)'>Сохранить</a>

@@ -36,10 +36,9 @@ export class NewComponent implements OnInit {
     }
 
     if(file)
-      reader.readAsDataURL(file);
-    else {
+      reader.readAsDataURL(file)
+    else
       this.clear_poster_input()
-    }
   }
 
   clear_poster_input() {

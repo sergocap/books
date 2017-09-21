@@ -21,4 +21,4 @@ test:
   database: db/test.sqlite3
 
 production:
-  uri: <%= ENV.fetch('DATABASE_URL') %>
+  uri: <%= ENV['DATABASE_URL'] %>

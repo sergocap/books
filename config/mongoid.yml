@@ -159,7 +159,7 @@ test:
 production:
   clients:
     default:
-      uri: <%= ENV.fetch('MONGODB_URI') %>
+      uri: <%= ENV['MONGODB_URI'] %>
 
 
 

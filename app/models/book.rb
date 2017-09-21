@@ -12,7 +12,7 @@ class Book
     default_url: '/images/missing_poster_:style.jpg',
     url: '/system/book/:attachment/:id/:style/:filename',
     styles: {
-     	small:   ['200x200#']
+     	small:   ['200x200>']
     }
 
 	validates_attachment_content_type :poster, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
@@ -27,6 +27,7 @@ class Book
       title: title,
       description: description,
       poster_url: poster.url(:small),
+      poster_original_url: poster.url(:original),
       created_at: created_at
     }
   end

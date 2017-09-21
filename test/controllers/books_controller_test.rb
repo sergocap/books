@@ -64,7 +64,7 @@ class BooksControllerTest < ActionDispatch::IntegrationTest
     data = JSON.parse(@response.body)
 
 
-    params = ['id', 'title', 'description', 'poster_url', 'created_at'].sort
+    params = ['id', 'title', 'description', 'poster_url', 'poster_original_url', 'created_at'].sort
 
     assert data
     assert data['data']

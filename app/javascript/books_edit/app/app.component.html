@@ -1,20 +1,23 @@
 <h1>Редактирование книги "{{old_title}}"</h1>
-<table class='table table-hover'>
+<table class='table'>
   <thead>
     <tr>
       <td>Название</td>
       <td>Описание</td>
       <td>Обложка</td>
-      <td>Дата создания</td>
+      <td class='date_col'>Дата создания</td>
       <td></td>
     </tr>
   </thead>
   <tbody>
     <tr class='form-group'>
-      <td><input type='text' [(ngModel)]='book.title' class='form-control'/></td>
-      <td><textarea rows='5' [(ngModel)]='book.description' class='form-control'></textarea></td>
+      <td><textarea [(ngModel)]='book.title' class='form-control'></textarea></td>
+      <td><textarea cols='60' rows='10' [(ngModel)]='book.description' class='form-control'></textarea></td>
       <td>
-        <img *ngIf='!poster_base64.length' [src]='book.poster_url'></img>
+        <a *ngIf='!poster_base64.length' [href]='book.poster_original_url' target='_blank'>
+          <img [src]='book.poster_url'></img>
+        </a>
+
         <img [src]='poster_base64'></img>
 
         <input type='file' name='book[poster]'

@@ -7,7 +7,9 @@ import { BooksService } from './books.service';
   selector: 'book-edit',
   template: templateString,
   styles: [`
-    img { max-height: 200px; margin-bottom: 15px }
+    img { max-width: 200px; margin-bottom: 15px }
+    input[type="file"] { max-width: 250px; font-size: 14px }
+    .date_col { width: 100px }
     `]
 })
 export class AppComponent implements OnInit {

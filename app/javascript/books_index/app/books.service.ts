@@ -21,6 +21,7 @@ export class BooksService {
             res_book.title,
             res_book.description,
             res_book.poster_url,
+            res_book.poster_original_url,
             res_book.created_at
           ))
         }
@@ -44,7 +45,7 @@ export class BooksService {
   }
 
   new_book() {
-    return new Book('', '', '', '', '')
+    return new Book('', '', '', '', '', '')
   }
 
   create_book(book:Book):Observable<Book> {
@@ -64,6 +65,7 @@ export class BooksService {
         res_book.title,
         res_book.description,
         res_book.poster_url,
+        res_book.poster_original_url,
         res_book.created_at
       );
       this.books.push(new_book);

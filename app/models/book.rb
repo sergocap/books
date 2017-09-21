@@ -10,7 +10,7 @@ class Book
 
   has_mongoid_attached_file :poster,
     default_url: '/images/missing_poster_:style.jpg',
-    url: '/system/afishas/:attachment/:id/:style/:filename',
+    url: '/system/book/:attachment/:id/:style/:filename',
     styles: {
      	small:   ['200x200#']
     }

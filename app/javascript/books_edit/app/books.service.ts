@@ -29,7 +29,7 @@ export class BooksService {
     )
   }
 
-  update_book(book:Book):Observable<Object> {
+  update_book(book:Book) {
     let data = {
       book: {
         title: book.title,
@@ -39,6 +39,13 @@ export class BooksService {
       }
     }
 
-    return this.http.put('/books/' + book.id + '.json', data).map((res:Response)=>{ return res })
+    this.http.put('/books/' + book.id + '.json', data).subscribe(
+      res => window.location.replace('/books'),
+      err => {
+				let dictionary = err.json().data.errors;
+        for (let key in dictionary)
+          alert(key + ': ' + dictionary[key][0])
+      }
+    )
   }
 }

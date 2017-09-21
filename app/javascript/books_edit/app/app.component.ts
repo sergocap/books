@@ -17,13 +17,6 @@ export class AppComponent implements OnInit {
   }
 
   update() {
-    this.books_service.update_book(this.book).subscribe(
-      res => window.location.replace('/books'),
-      err => {
-				let dictionary = err.json().data.errors;
-				for (let key in dictionary) {
-          alert(key + ': ' + dictionary[key][0])
-				}
-    });
+    this.books_service.update_book(this.book)
   }
 }

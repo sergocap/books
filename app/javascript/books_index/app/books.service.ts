@@ -14,7 +14,7 @@ export class BooksService {
         let books_res = res.json().data.books;
 
         for(let res_book of books_res) {
-          this.books.unshift(new Book(
+          this.books.push(new Book(
             res_book.id,
             res_book.title,
             res_book.description,
@@ -55,7 +55,7 @@ export class BooksService {
     this.http.post('/books', data).subscribe(
       res => {
       	let res_book = res.json().data.book;
-				this.books.unshift(new Book(
+				this.books.push(new Book(
 					res_book.id,
 					res_book.title,
 					res_book.description,

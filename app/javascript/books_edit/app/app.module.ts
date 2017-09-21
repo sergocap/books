@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HttpModule  } from '@angular/http';
 import { BooksService } from './books.service';
+import { MomentModule  } from 'angular2-moment';
 
 import { AppComponent } from './app.component.ts';
 
@@ -13,7 +14,8 @@ import { AppComponent } from './app.component.ts';
   imports: [
     BrowserModule,
     HttpModule,
-    FormsModule
+    FormsModule,
+    MomentModule
   ],
   providers: [ BooksService ],
   bootstrap: [ AppComponent ]

@@ -5,7 +5,8 @@ import { BooksService } from './books.service';
 
 @Component({
   selector: 'books-index',
-  template: templateString
+  template: templateString,
+  styles: [ require('./app.component.sass').toString() ]
 })
 export class AppComponent implements OnInit {
   books:Book[] = [];

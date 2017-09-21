@@ -5,17 +5,24 @@ import { BooksService } from './books.service';
 
 @Component({
   selector: 'book-edit',
-  template: templateString
+  template: templateString,
+  styles: [`
+    img { max-height: 200px; margin-bottom: 15px }
+    `]
 })
 export class AppComponent implements OnInit {
   book:Book;
   poster_base64 = '';
   files_input:Object;
+  old_title = '';
 
   constructor(private books_service:BooksService) {}
 
   ngOnInit() {
-    this.book = this.books_service.get_book().subscribe((data) => this.book = data);
+    this.book = this.books_service.get_book().subscribe((data) => {
+      this.book = data;
+      this.old_title = this.book.title;
+    });
   }
 
   update() {

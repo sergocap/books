@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import templateString from './app.component.html';
+import templateString from './app.component.html.slim';
 import Book from './book.ts';
 import { BooksService } from './books.service';
 

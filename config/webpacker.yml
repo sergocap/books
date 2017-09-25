@@ -19,6 +19,8 @@ default: &default
     - .js
     - .jsx
     - .html
+    - .slm
+    - .slim
     - .ts
     - .vue
     - .sass

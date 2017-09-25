@@ -14,4 +14,21 @@ environment.loaders.set('html', {
   }]
 })
 
+environment.loaders.set('slm', {
+  test: /\.html\.(slm|slim)/,
+  use: [
+  {
+    loader: 'html-loader',
+    options: {
+      minimize: true,
+      removeAttributeQuotes: false,
+      caseSensitive: true,
+      customAttrSurround: [ [/#/, /(?:)/], [/\*/, /(?:)/], [/\[?\(?/, /(?:)/] ],
+      customAttrAssign: [ /\)?\]?=/ ]
+    }
+  },
+  { loader: 'slm-loader' }
+  ]
+})
+
 module.exports = environment

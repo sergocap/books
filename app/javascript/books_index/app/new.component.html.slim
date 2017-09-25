@@ -1,0 +1,20 @@
+h2 Новая книга
+div
+  form[on-ngSubmit='create_book()']
+    .form-group
+      input#book_title.form-control[type='text' name='book[title]' placeholder='Описание'
+        bindon-ngModel='book.title']
+
+    .form-group
+      textarea#book_description.form-control[name='book[description]' placeholder='Описание'
+        bindon-ngModel='book.description']
+
+    .form-group
+      input#book_poster.form-control[type='file' name='book[poster]'
+        on-change='set_poster_base64($event)' bindon-ngModel='files_input']
+
+    .form-group[*ngIf='poster_base64.length']
+      img[bind-src='poster_base64']
+
+    .form-group
+      input.btn.btn-success[type='submit' value='Создать книгу']

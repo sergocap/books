@@ -26,7 +26,6 @@ table.table.table-hover[*ngIf='books.length']
         a[href='javascript:void(0)' on-click='delete_book(i)'] Удалить
 
 
-ng-template[*ngIf='!books.length']
-  p Нет записей
+p[*ngIf='!books.length'] Нет записей
 
 book-new Загрузка...
